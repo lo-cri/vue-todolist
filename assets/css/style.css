@@ -1,0 +1,27 @@
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+header img{
+    width: 4rem;
+    height: 3rem;
+}
+
+i{
+    line-height: 20px;
+}
+
+.fa-xmark{
+    color: white;
+    border-radius: 10px;
+    background-color: #eea990;
+    padding: 0px 4px;
+    
+}
+
+.sbarrato{
+    text-decoration: line-through;
+}

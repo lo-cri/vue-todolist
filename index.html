@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body>
+
+
+    <div id="app">
+        <div class="container">
+
+            <header>
+                <h1 style="color: lightcoral">To-Do List</h1>
+            </header>
+
+            <div>
+                <input id="textinput" type="text" v-model="newItem" v-on:keyup.enter="addItem" >
+                <button class="col-2 btn btn-outline-success" @click="addItem">New</button>
+            </div>
+
+            <div id="toDoList">
+                <ul class="list-group list-group-flush">
+                    <li v-for="(element, index) in todos" :key="index" class="list-group-item list-group-item-action">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span v-bind:class="[(element.done == true)? 'sbarrato' : '' ]" @click="changeDoneValue(index)">
+                                {{element.text}}
+
+                            </span>
+                            <i class="fa-solid fa-xmark" @click="deleteItem(index)">x</i>
+                        </div>
+                    </li>
+                  </ul>
+            </div>
+
+            <div v-if="todos!= 0">
+                <button class="col-2 btn btn-outline-danger" @click="clearList">Clear</button>
+            </div>
+
+            <div v-if="todos == 0">
+                <div class="alert alert-danger" role="alert">
+                    La lista è vuota :)
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+    <!-- 1 boostrap - 2 vue js - 3 mio j -->
+    <script src='https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js' integrity='sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe' crossorigin='anonymous'></script>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <script src="./assets/js/main.js"></script>
+    
+</body>
+</html>
